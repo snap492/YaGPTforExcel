@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YaGPTforExcel", "YaGPTforExcel\YaGPTforExcel.csproj", "{142FA517-755F-4F4E-9F08-10AF5013E462}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{142FA517-755F-4F4E-9F08-10AF5013E462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142FA517-755F-4F4E-9F08-10AF5013E462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142FA517-755F-4F4E-9F08-10AF5013E462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142FA517-755F-4F4E-9F08-10AF5013E462}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3BDA51F-E797-4C53-84CE-04BFB2C0E21B}
+	EndGlobalSection
+EndGlobal
