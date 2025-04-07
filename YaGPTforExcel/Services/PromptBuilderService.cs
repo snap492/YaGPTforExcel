@@ -1,17 +1,27 @@
 using System;
 using System.Windows.Forms;
+using YaGPTforExcel.Utils;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace YaGPTforExcel.Services
 {
     public static class PromptBuilderService
     {
-        public static string TryAddMarkdownIfRelevant(string userPrompt)
+        /// <summary>
+        /// Проверяет, содержит ли пользовательский prompt запрос, связанный с таблицей,
+        /// и если выделен диапазон в Excel, автоматически добавляет его содержимое в формате Markdown.
+        /// </summary>
+        /// <param name="userPrompt">Исходный запрос пользователя</param>
+        /// <returns>Запрос с добавленной таблицей (если применимо)</returns>
+        public static string BuildPrompt(string userPrompt)
         {
             var excelApp = Globals.ThisAddIn.Application;
             var selection = excelApp.Selection as Excel.Range;
 
+            // Приводим запрос к нижнему регистру для поиска ключевых слов
             var lowered = userPrompt.ToLower();
+
+            // Проверка на наличие "табличных" фраз
             bool mentionsTable = lowered.Contains("таблица") ||
                                  lowered.Contains("анализируй") ||
                                  lowered.Contains("выделение") ||
@@ -23,9 +33,10 @@ namespace YaGPTforExcel.Services
                                  lowered.Contains("добавь") ||
                                  lowered.Contains("добави");
 
+            // Если выделена таблица и запрос связан с таблицами
             if (selection != null && selection.Cells.Count > 1 && mentionsTable)
             {
-                string markdown = GetSelectedRangeTextAsMarkdown();
+                string markdown = MarkdownGenerator.GetSelectedRangeTextAsMarkdown(selection);
                 if (!string.IsNullOrEmpty(markdown))
                 {
                     return $"Вот выделенная таблица в формате Markdown:\n\n{markdown}\n\n{userPrompt}";
@@ -33,75 +44,6 @@ namespace YaGPTforExcel.Services
             }
 
             return userPrompt;
-        }
-
-        private static string GetSelectedRangeTextAsMarkdown()
-        {
-            try
-            {
-                var excelApp = Globals.ThisAddIn.Application;
-                var selection = excelApp.Selection as Excel.Range;
-
-                if (selection != null && selection.Cells.Count > 0)
-                {
-                    int rows = selection.Rows.Count;
-                    int cols = selection.Columns.Count;
-                    var markdown = "";
-
-                    string[,] table = new string[rows, cols];
-
-                    for (int r = 1; r <= rows; r++)
-                    {
-                        for (int c = 1; c <= cols; c++)
-                        {
-                            var cell = selection.Cells[r, c] as Excel.Range;
-                            table[r - 1, c - 1] = cell?.Text?.ToString() ?? "";
-                        }
-                    }
-
-                    markdown += GenerateMarkdownHeader(table, cols);
-                    markdown += GenerateMarkdownSeparator(cols);
-                    markdown += GenerateMarkdownRows(table, rows, cols);
-
-                    return markdown.Trim();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при формировании Markdown: {ex.Message}");
-            }
-
-            return "";
-        }
-
-        private static string GenerateMarkdownHeader(string[,] table, int cols)
-        {
-            var header = "";
-            for (int c = 0; c < cols; c++)
-                header += $"| {table[0, c]} ";
-            header += "|\n";
-            return header;
-        }
-
-        private static string GenerateMarkdownSeparator(int cols)
-        {
-            var separator = "";
-            for (int c = 0; c < cols; c++)
-                separator += "|---";
-            separator += "|\n";
-            return separator;
-        }
-
-        private static string GenerateMarkdownRows(string[,] table, int rows, int cols)
-        {
-            var rowsMarkdown = "";
-            for (int r = 1; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                    rowsMarkdown += $"| {table[r, c]} ";
-                rowsMarkdown += "|\n";
-            }
-            return rowsMarkdown;
         }
     }
 }

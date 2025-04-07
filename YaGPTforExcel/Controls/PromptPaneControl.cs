@@ -25,7 +25,7 @@ namespace YaGPTforExcel.Controls
                     return;
                 }
 
-                userPrompt = PromptBuilderService.TryAddMarkdownIfRelevant(userPrompt);
+                userPrompt = PromptBuilderService.BuildPrompt(userPrompt);
 
                 var service = new Yagpt4excelService(Properties.Settings.Default.Token, Properties.Settings.Default.FolderId);
                 var result = await service.GenerateText(userPrompt);
