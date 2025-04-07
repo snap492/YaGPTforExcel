@@ -10,7 +10,7 @@ namespace YaGPTforExcel.Controls
         private Button btnSend;
         private CheckBox chkInsert;
 
-        public event EventHandler<string> PromptSubmitted;
+        //public event EventHandler<string> PromptSubmitted;
         public bool InsertIntoExcel => chkInsert.Checked;
 
        

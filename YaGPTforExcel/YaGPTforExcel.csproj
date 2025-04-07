@@ -230,6 +230,8 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\ExcelInsertService.cs" />
+    <Compile Include="Services\PromptBuilderService.cs" />
     <Compile Include="Services\Yagpt4excelService.cs" />
     <Compile Include="Controls\SettingsForm.cs">
       <SubType>Form</SubType>

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using YaGPTforExcel.Services;
+using YaGPTforExcel.Controls;
 
 namespace YaGPTforExcel.Ribbon
 {
@@ -88,11 +89,14 @@ namespace YaGPTforExcel.Ribbon
 
     }
 
-    partial class ThisRibbonCollection
-    {
-        internal YaGPT4ExcelRibbon YaGPT4ExcelRibbon
-        {
-            get { return this.GetRibbon<YaGPT4ExcelRibbon>(); }
-        }
-    }
+    //partial class ThisRibbonCollection
+    //{
+    //    internal YaGPT4ExcelRibbon YaGPT4ExcelRibbon
+    //    {
+    //        get
+    //        {
+    //            return this.GetRibbon<YaGPT4ExcelRibbon>();
+    //        }
+    //    }
+    //}
 }

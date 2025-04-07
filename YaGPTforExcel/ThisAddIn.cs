@@ -7,6 +7,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using YaGPTforExcel.Controls;
 
 namespace YaGPTforExcel
 {
