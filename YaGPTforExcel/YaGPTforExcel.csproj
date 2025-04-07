@@ -221,29 +221,29 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="PromptPaneControl.cs">
+    <Compile Include="Controls\PromptPaneControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PromptPaneControl.Designer.cs">
+    <Compile Include="Controls\PromptPaneControl.Designer.cs">
       <DependentUpon>PromptPaneControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\Yagpt4excelService.cs" />
-    <Compile Include="SettingsForm.cs">
+    <Compile Include="Controls\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
+    <Compile Include="Controls\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="YaGPT4ExcelRibbon.cs">
+    <Compile Include="Ribbon\YaGPT4ExcelRibbon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="YaGPT4ExcelRibbon.Designer.cs">
+    <Compile Include="Ribbon\YaGPT4ExcelRibbon.Designer.cs">
       <DependentUpon>YaGPT4ExcelRibbon.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PromptPaneControl.resx">
+    <EmbeddedResource Include="Controls\PromptPaneControl.resx">
       <DependentUpon>PromptPaneControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -255,10 +255,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SettingsForm.resx">
+    <EmbeddedResource Include="Controls\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="YaGPT4ExcelRibbon.resx">
+    <EmbeddedResource Include="Ribbon\YaGPT4ExcelRibbon.resx">
       <DependentUpon>YaGPT4ExcelRibbon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -283,6 +283,9 @@
     </Compile>
     <AppDesigner Include="Properties\" />
     <None Include="YaGPTforExcel_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

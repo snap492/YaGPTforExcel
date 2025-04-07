@@ -1,4 +1,4 @@
-﻿namespace YaGPTforExcel
+﻿namespace YaGPTforExcel.Ribbon
 {
     partial class YaGPT4ExcelRibbon : Microsoft.Office.Tools.Ribbon.RibbonBase
     {

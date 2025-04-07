@@ -73,8 +73,8 @@ namespace YaGPTforExcel.Services
             // Формируем тело запроса
             var body = new
             {
-                modelUri = $"gpt://{folderId}/yandexgpt-lite",
-                completionOptions = new { stream = false, temperature = 0.7, maxTokens = 2000 },
+                modelUri = $"gpt://{folderId}/yandexgpt",
+                completionOptions = new { stream = false, temperature = 0.4, maxTokens = 2000 },
                 messages = new[]
                 {
                     new { role = "user", text = prompt }

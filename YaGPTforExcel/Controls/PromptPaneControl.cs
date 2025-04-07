@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using YaGPTforExcel.Services;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace YaGPTforExcel
+namespace YaGPTforExcel.Controls
 {
     public partial class PromptPaneControl : UserControl
     {

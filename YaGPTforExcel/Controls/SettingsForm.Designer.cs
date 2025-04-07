@@ -1,4 +1,4 @@
-﻿namespace YaGPTforExcel
+﻿namespace YaGPTforExcel.Controls
 {
     partial class SettingsForm
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace YaGPTforExcel
+namespace YaGPTforExcel.Controls
 {
     public partial class SettingsForm : Form
     {

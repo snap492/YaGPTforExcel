@@ -6,7 +6,7 @@ using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using YaGPTforExcel.Services;
 
-namespace YaGPTforExcel
+namespace YaGPTforExcel.Ribbon
 {
     public partial class YaGPT4ExcelRibbon : RibbonBase
     {
